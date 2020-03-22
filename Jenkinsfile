@@ -2,19 +2,17 @@
 node {
     def app
 
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-
-        checkout scm
-    }
-
     stage('Access AWS EC2 instance') {
         ssh -i "key1.pem" ubuntu@ec2-3-0-61-6.ap-southeast-1.compute.amazonaws.com
     }
 
+    stage('Clone repository') {
+        /* Cloning the Repository to our Workspace */
+        checkout scm
+    }
+
     stage('Build image') {
         /* This builds the actual image */
-
         app = docker.build("kennykwekjy/jenkins")
     }
     
@@ -36,4 +34,5 @@ node {
             } 
         echo "Trying to Push Docker Build to DockerHub"
     }
+
 }
