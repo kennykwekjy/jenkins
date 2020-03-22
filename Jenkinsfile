@@ -2,11 +2,11 @@
 node {
     def app
 
-    stage('Access AWS EC2 instance') {
-        echo "Start accessing AWS EC2"
+    // stage('Access AWS EC2 instance') {
+    //     echo "Start accessing AWS EC2"
         // sh "sudo ssh -i /var/lib/jenkins/workspace/jenkins-ubuntu/key1.pem ubuntu@ec2-3-0-61-6.ap-southeast-1.compute.amazonaws.com"
         // sshPublisher(publishers: [sshPublisherDesc(configName: 'ec2', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'apt-get update', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*. war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-    }    
+    // }   
      
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
