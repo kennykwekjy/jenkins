@@ -17,7 +17,7 @@ node {
 
         app = docker.build("kennykwekjy/jenkins")
     }
-
+    
     stage('Test image') {
         
         app.inside {
