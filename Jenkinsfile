@@ -21,7 +21,6 @@ node {
         app.inside {
             echo "Tests passed"
         }
-        // properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
     }
 
     stage('Push image') {    
