@@ -12,7 +12,7 @@ node {
         /* Cloning the Repository to our Workspace */
         echo "Clone from github"
         checkout scm
-    }
+    }    
 
     stage('Build image') {
         /* This builds the actual image */
