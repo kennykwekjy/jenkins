@@ -2,12 +2,22 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/tbank/')
 def hello_world():
-    return 'hi prof we love microservices'
-  
+    return jsonify(
+        status = "success",
+        data = "tBank API is up and running"
+    )
 
-#
-
+@app.route('/tbank/<username>') # dynamic route
+def hello_user(username):
+    return jsonify(
+        status = "success",
+        data = {
+            "username": username,
+            "account_status" "active" 
+        }
+    )
 
   
 if __name__ == '__main__':
