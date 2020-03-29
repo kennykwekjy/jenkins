@@ -7,3 +7,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 # ENTRYPOINT ["python"]
 CMD ["python", "app.py"]
+CMD ["python", "test.py"]
