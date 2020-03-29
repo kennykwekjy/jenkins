@@ -13,10 +13,7 @@ def hello_world():
 def hello_user(username):
     return jsonify(
         status = "success",
-        data = {
-            "username": username,
-            "account_status" "active" 
-        }
+        data = "User " + username + " is active."
     )
 
   
