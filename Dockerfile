@@ -4,7 +4,7 @@ RUN apt-get install -y python-pip python-dev build-essential
 ADD . /flask-app
 WORKDIR /flask-app
 RUN pip install -r requirements.txt
+RUN python test.py
 EXPOSE 8000
 # ENTRYPOINT ["python"]
 CMD ["python", "app.py"]
-CMD ["python", "test.py"]
