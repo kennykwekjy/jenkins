@@ -1,4 +1,5 @@
 import unittest
+import json
 import app
 
 # from app.main import *
@@ -33,7 +34,7 @@ def test_hello_hello(self):
                     }
 
         self.assertEqual(rv.status, '200 OK')
-        self.assertEqual(rv.data, response)
+        self.assertEqual(json.loads(rv.data), response)
     # def test_hello_name(self):
     #     name = 'Kenny'
     #     rv = self.app.get(f'/tbank/{name}')
