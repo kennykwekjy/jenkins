@@ -15,15 +15,16 @@ class TestHello(unittest.TestCase):
         self.assertEqual(rv.status, '200 OK')
 
     def test_hello_hello(self):
-            rv = self.app.get('/tbank/')
+        rv = self.app.get('/tbank/')
 
-            response = {
-                            "data": "tBank API is up and running", 
-                            "status": "failed"
-                        }
+        response = {
+                        "data": "tBank API is up and running", 
+                        "status": "success"
+                    }
 
-            self.assertEqual(rv.status, '200 OK')
-            self.assertEqual(json.loads(rv.data), response)
+        self.assertEqual(rv.status, '200 OK')
+        self.assertEqual(json.loads(rv.data), response)
+
     # def test_hello_name(self):
     #     name = 'Kenny'
     #     rv = self.app.get(f'/tbank/{name}')
