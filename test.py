@@ -14,17 +14,6 @@ class TestHello(unittest.TestCase):
         rv = self.app.get('/')
         self.assertEqual(rv.status, '200 OK')
 
-    def test_hello_hello(self):
-        rv = self.app.get('/tbank/')
-
-        response = {
-                        "data": "tBank API is up and running", 
-                        "status": "success"
-                    }
-
-        self.assertEqual(rv.status, '200 OK')
-        self.assertEqual(rv.data, response)
-
 def test_hello_hello(self):
         rv = self.app.get('/tbank/')
 
