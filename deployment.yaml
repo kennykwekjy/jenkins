@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: jenkins:latest
+        image: kennykwekjy/jenkins:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
