@@ -7,7 +7,7 @@ spec:
     app: jenkins
   ports:
   - protocol: "TCP"
-    port: 6000
+    port: 8000
     targetPort: 8000
   type: LoadBalancer
 
@@ -29,6 +29,6 @@ spec:
       containers:
       - name: jenkins
         image: kennykwekjy/jenkins:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: always
         ports:
         - containerPort: 8000
