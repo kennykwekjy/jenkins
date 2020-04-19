@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: jenkins
-  name: jenkins
+    app: jenkins2
+  name: jenkins2
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: jenkins
+      app: jenkins2
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: jenkins
+        app: jenkins2
     spec:
       containers:
-      - name: jenkins
+      - name: jenkins2
         image: kennykwekjy/jenkins2:latest
         imagePullPolicy: Always
         resources: {}
