@@ -5,5 +5,5 @@ ADD . /flask-app
 WORKDIR /flask-app
 RUN pip install -r requirements.txt
 RUN python test.py
-EXPOSE 80
+EXPOSE 8080
 CMD ["python", "app.py"]
