@@ -11,7 +11,7 @@ def hello_world():
         data = "tBank API is up and running."
     ), 200
 
-@app.route('/tbank/test')
+@app.route('/test')
 def hello_world():
     return jsonify(
         status = "success",
