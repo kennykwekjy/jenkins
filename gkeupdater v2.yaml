@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tbank
+  labels:
+    name: tbank
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+  selector:
+    matchLabels:
+      name: tbank
+  template:
+    metadata:
+      name: tbank
+      labels:
+        name: tbank
+    spec:
+      containers:
+        - name: tbank
+          image: asia.gcr.io/tbank-274715/tbank:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          resources: {} 
+          env:
+            - name: DEBUG_MODE
+              value: "1"
+          readinessProbe:
+            exec:
+              command:
+                - /startup.sh
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            successThreshold: 1
+
+

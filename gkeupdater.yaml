@@ -1,11 +1,13 @@
-apiVersion: apps/v1
-kind: Deployment
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
 metadata:
-  name: tbank
+  name: "tbank"
+  namespace: "default"
   labels:
-    name: tbank
+    app: "tbank"
 spec:
-  replicas: 1
+  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -13,29 +15,39 @@ spec:
       maxUnavailable: 25%
   selector:
     matchLabels:
-      name: tbank
+      app: "tbank"
   template:
     metadata:
-      name: tbank
       labels:
-        name: tbank
+        app: "tbank"
     spec:
       containers:
-        - name: tbank
-          image: gcr.io/tbank-274715/tbank:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 5000
-          resources: {} 
-          env:
-            - name: DEBUG_MODE
-              value: "1"
-          readinessProbe:
-            exec:
-              command:
-                - /startup.sh
-            initialDelaySeconds: 5
-            periodSeconds: 15
-            successThreshold: 1
-
-
+      - name: "tbank-sha256-1"
+        image: "gcr.io/tbank-274715/tbank@sha256:672275d9b4c7c6d7d39423d9400bdfaaba00e9f5b666fd8b345fa67a06938bcb"
+        readinessProbe:
+          exec:
+            command:
+              - /startup.sh
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          successThreshold: 1
+---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "tbank-hpa-1mqm"
+  namespace: "default"
+  labels:
+    app: "tbank"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "tbank"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80
