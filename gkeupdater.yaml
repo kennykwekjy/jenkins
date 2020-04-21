@@ -51,3 +51,22 @@ spec:
     resource:
       name: "cpu"
       targetAverageUtilization: 80
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "tbank-service"
+  namespace: "default"
+  labels:
+    app: "tbank"
+    app.kubernetes.io/managed-by: "graphite-jenkins-gke"
+spec:
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 5000
+  selector:
+    app: "tbank"
+  type: "LoadBalancer"
+  loadBalancerIP: ""
+    
