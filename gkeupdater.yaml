@@ -27,10 +27,7 @@ spec:
           ports:
             - containerPort: 5000
           resources:
-            requests:
-              memory: 
-            limits:
-              memory: 
+            requests: {} 
           env:
             - name: DEBUG_MODE
               value: "1"
