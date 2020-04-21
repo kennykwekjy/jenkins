@@ -15,7 +15,7 @@ def hello_world():
 def hello_user(username):
     return jsonify(
         status = "success",
-        data = "User " + username + " is currently active."
+        data = "User " + username + " is currently very dry & active."
     ), 200
 
   
