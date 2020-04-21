@@ -18,7 +18,7 @@ class TestHello(unittest.TestCase):
         rv = self.app.get('/tbank/')
 
         response = {
-                        "data": "tBank API is up and running", 
+                        "data": "tBank API is up and running.", 
                         "status": "success"
                     }
 
