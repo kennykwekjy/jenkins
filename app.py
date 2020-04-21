@@ -11,18 +11,11 @@ def hello_world():
         data = "tBank API is up and running."
     ), 200
 
-@app.route('/test')
-def hello_world():
-    return jsonify(
-        status = "success",
-        data = "test is successful."
-    ), 200
-
 @app.route('/tbank/<username>') # dynamic route
 def hello_user(username):
     return jsonify(
         status = "success",
-        data = "User " + username + " is active."
+        data = "User " + username + " is currently active."
     ), 200
 
   
