@@ -26,8 +26,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
-          resources:
-            requests: {} 
+          resources: {} 
           env:
             - name: DEBUG_MODE
               value: "1"
