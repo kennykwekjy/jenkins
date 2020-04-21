@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: tbank
-          image: kennykwekjy/tbank:latest
+          image: kennykwekjy/jenkins2:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
@@ -35,11 +35,11 @@ spec:
             - name: DEBUG_MODE
               value: "1"
           readinessProbe:
-            exec:
-              command:
-                - /startup.sh
-            initialDelaySeconds: 5
-            periodSeconds: 15
-            successThreshold: 1
+          httpGet:
+             path: /
+             port: 5000
+             initialDelaySeconds: 5
+             periodSeconds: 5
+             successThreshold: 1
 
 
