@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: tbank
-          image: kennykwekjy/tbank:latest
+          image: asia.gcr.io/tbank-274715/tbank:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
