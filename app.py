@@ -8,7 +8,7 @@ app = Flask(__name__)
 def hello_world():
     return jsonify(
         status = "success",
-        data = "tBank API is up and running"
+        data = "tBank API is up and running. Thank you."
     ), 200
 
 @app.route('/tbank/<username>') # dynamic route
