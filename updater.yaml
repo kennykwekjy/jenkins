@@ -7,12 +7,7 @@ metadata:
   labels:
     app: "tbank"
 spec:
-  replicas: 3
-  #strategy:
-   # type: RollingUpdate
-    #rollingUpdate:
-    #  maxSurge: 1
-    #  maxUnavailable: 25%
+  replicas: 2
   selector:
     matchLabels:
       app: "tbank"
@@ -24,13 +19,7 @@ spec:
       containers:
       - name: "tbank-sha256-1"
         image: "gcr.io/tbank-274715/tbank@sha256:672275d9b4c7c6d7d39423d9400bdfaaba00e9f5b666fd8b345fa67a06938bcb"
-        #readinessProbe:
-        #  exec:
-        #    command:
-        #      - /startup.sh
-        #  initialDelaySeconds: 5
-         # periodSeconds: 15
-         # successThreshold: 1
+
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
