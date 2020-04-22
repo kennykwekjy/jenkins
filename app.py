@@ -10,7 +10,7 @@ def hello_world():
         status = "success",
         data = "tBank API is up and running."
     ), 200
-#djjdj
+
 @app.route('/tbank/<username>') # dynamic route
 def hello_user(username):
     return jsonify(
@@ -18,6 +18,9 @@ def hello_user(username):
         data = "User " + username + " is currently very active 123 baba"
     ), 200
 
+@app.route('/guide/')
+def hello_world():
+    return redirect("https://tbankguide.netlify.app")
   
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
