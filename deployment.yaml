@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: "tbank-sha256-1"
-        image: "gcr.io/tbank-274715/tbank@sha256:672275d9b4c7c6d7d39423d9400bdfaaba00e9f5b666fd8b345fa67a06938bcb"
+        image: "gcr.io/tbank-274715/tbank:latest"
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
