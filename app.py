@@ -10,11 +10,11 @@ def hello_world():
         status = "success",
         data = "tBank API is up and running."
     ), 200
-@app.route('/tbank/<username>') # dynamic route dsds haha
+@app.route('/tbank/<username>') # dynamic route 
 def hello_user(username):
     return jsonify(
         status = "success",
-        data = "User " + username + " is currently very very active 123 "
+        data = "User " + username + " is currently very active  "
     ), 200
   
 if __name__ == '__main__':
