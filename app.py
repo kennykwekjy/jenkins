@@ -10,7 +10,7 @@ def hello_world():
         status = "success",
         data = "tBank API is up and running."
     ), 200
-@app.route('/tbank/<username>') # dynamic route dsds
+@app.route('/tbank/<username>') # dynamic route dsds haha
 def hello_user(username):
     return jsonify(
         status = "success",
